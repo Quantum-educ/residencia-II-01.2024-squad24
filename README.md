@@ -8,13 +8,13 @@
  3. Instale o <a href="https://www.python.org/downloads/" target="_blank">Python</a>
 
  4. Crie um ambiente virtual python: `$ python -m venv NOME_DO_AMBIENTE`
- > obs: o comando "python" pode mudar a depender de como foi instalado, se "python" nao funcionar tente "py" ou "python3"
+     > obs: o comando "python" pode mudar a depender de como foi instalado, se "python" nao funcionar tente "py" ou "python3"
 
  5. Entre no ambiente virtual: </br>
-| Sistema operacional  | Comando |
-| ------------- | ------------- |
-| Linux  | `$ . NOME_DO_AMBIENTE/bin/activate` |
-| Windows  | `$ .\NOME_DO_AMBIENTE\Scripts\activate`  |
+    | Sistema operacional  | Comando |
+    | ------------- | ------------- |
+    | Linux  | `$ . NOME_DO_AMBIENTE/bin/activate` |
+    | Windows  | `$ .\NOME_DO_AMBIENTE\Scripts\activate`  |
  
  6. Instale o django no ambiente virtual: `$ pip install Django`
 
