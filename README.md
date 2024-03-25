@@ -35,7 +35,7 @@
 
 ![Diagrama](https://i.postimg.cc/25mKQwbW/Captura-de-tela-de-2024-03-25-16-37-33.png)
 
-> ainda incompleto, onde a tabela de "perfil será preenchida"
+> ainda incompleto, onde a tabela de "perfil" será preenchida
 
 </br>
 <p>Aqui está um exemplo de model:</p>
