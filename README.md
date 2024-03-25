@@ -7,24 +7,76 @@
  </br></br>logo após isso, entre no projeto clonado:
  </br>`$ cd residenciaII-01.2024-squad24`
 
- 4. Instale o <a href="https://www.python.org/downloads/" target="_blank">Python</a>
+ 3. Instale o <a href="https://www.python.org/downloads/" target="_blank">Python</a>
 
- 5. Crie um ambiente virtual python: `$ python -m venv NOME_DO_AMBIENTE`
+ 4. Crie um ambiente virtual python: `$ python -m venv NOME_DO_AMBIENTE`
      > obs: o comando "python" pode mudar a depender de como foi instalado, se "python" nao funcionar tente "py" ou "python3"
 
- 6. Entre no ambiente virtual: </br>
+ 5. Entre no ambiente virtual: </br>
     | Sistema operacional  | Comando |
     | ------------- | ------------- |
     | Linux  | `$ . NOME_DO_AMBIENTE/bin/activate` |
     | Windows  | `$ .\NOME_DO_AMBIENTE\Scripts\activate`  |
  
- 7. Instale o django no ambiente virtual: `$ pip install Django`
+ 6. Instale o django no ambiente virtual: `$ pip install Django`
 
- 8. Crie uma aplicacao django: `$ django-admin startproject NOME_DO_PROJETO`
+ 7. Crie uma aplicacao django: `$ django-admin startproject NOME_DO_PROJETO`
 
- 9. Entre no projeto: `$ cd NOME_DO_PROJETO`
+ 8. Entre no projeto: `$ cd NOME_DO_PROJETO`
 
- 10. Rode o projeto: `$ python manage.py runserver`
+ 9. Rode o projeto: `$ python manage.py runserver`
  
- 11. Verifique que na sua porta 8000 estará rodando o django, basta acessar: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>
+ 10. Verifique que na sua porta 8000 estará rodando o django, basta acessar: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>
  
+</br>
+
+## Documentação inicial 
+<p>Este é um trecho do nosso diagrama de classes UML.</p>
+
+![Diagrama](https://i.postimg.cc/25mKQwbW/Captura-de-tela-de-2024-03-25-16-37-33.png)
+
+> ainda incompleto, onde a tabela de "perfil será preenchida"
+
+</br>
+<p>Aqui está um exemplo de model:</p>
+
+```{.python}
+from django.db import models
+
+
+class ModelDeExemlo(models.Model):
+  """
+	Documentação do Model...
+		
+		
+	Atributos
+	----------
+	Guarda um valor para um campo:: 
+
+	  campo_teste: tipo
+		
+
+	Métodos
+	-------
+	Aqui uma breve descrição do metodo::
+
+	  metodo(parametros): str
+		...
+  """
+  
+  campo_teste = models.TipoDoCampo(
+  	...
+  )
+  
+  # Outros campos...
+  
+ 
+  def metodo(argumentos: tipo) -> tipo:
+    ...
+   
+
+  # Outros métodos...
+  
+```
+
+![Codigo](https://i.postimg.cc/cLCwXfmr/carbon.png)
