@@ -7,10 +7,37 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <main class="flex justify-center items-center min-h-screen">
-    <h1 class="text-3xl font-bold">
-      Cadastrar Usuário
-    </h1>
+  <main class="flex flex-col items-center gap-2 min-h-screen">
+    <header class="py-12">
+      <h1 class="text-3xl font-bold">Cadastrar Usuário</h1>
+    </header>
+    
+    {% load widget_tweaks %}
+    
+    <form method="post" class="flex flex-col gap-6">
+      {% csrf_token %}
+      <div class="flex gap-4 items-center w-full">
+        <div class="text-lg">Nome:</div>
+        {% render_field form.username class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+      </div>
+      
+      <div class="flex gap-4 items-center w-full">
+        <div class="text-lg">Email:</div>
+        {% render_field form.email class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+      </div>
+      
+      <div class="flex gap-4 items-center w-full">
+        <div class="text-lg">Senha:</div>
+        {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+      </div>
+      
+      <div class="flex gap-4 items-center w-full">
+        {% render_field form.accept_terms class+='' %}
+        <div class="text-lg">Aceito a Política de Privacidade</div>
+      </div>
+      
+      <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
+    </form>
   </main>
 </body>
 </html>
