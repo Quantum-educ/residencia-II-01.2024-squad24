@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastrar Usuário</title>
+  <title>Cadastro de Aluno</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <main class="flex flex-col items-center gap-2 min-h-screen">
     <header class="py-12">
-      <h1 class="text-3xl font-bold">Cadastrar Usuário</h1>
+      <h1 class="text-3xl font-bold">Cadastro de Aluno</h1>
     </header>
     
     {% load widget_tweaks %}
@@ -29,6 +29,11 @@
       <div class="flex gap-4 items-center w-full">
         <div class="text-lg">Senha:</div>
         {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+      </div>
+      
+      <div class="flex gap-4 items-center w-full">
+        <div class="text-lg">Confirmar senha:</div>
+        {% render_field form.confirm_password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
       </div>
       
       <div class="flex gap-4 items-center w-full">
