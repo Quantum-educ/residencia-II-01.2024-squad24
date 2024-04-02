@@ -7,8 +7,8 @@ def signup(request):
     if request.method == "POST":
         form = StudentForm(request.POST)
         if form.is_valid():
-            password = form.data['password']
-            confirm_password = form.data['confirm_password']
+            password = form.cleaned_data['password']
+            confirm_password = form.cleaned_data['confirm_password']
             if password == confirm_password:
                 user = form.save()
                 login(request, user)
