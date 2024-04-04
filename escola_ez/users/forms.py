@@ -1,5 +1,6 @@
 from django import forms
 from .models import Student
+from django.core.exceptions import ValidationError
 
 
 class StudentForm(forms.ModelForm):
@@ -12,5 +13,15 @@ class StudentForm(forms.ModelForm):
             'username',
             'email',
             'password',
-            'accept_terms'
         ]
+
+    def clean_validate_password(self):
+        password = self.cleaned_data['password']
+        confirm_password = self.cleaned_data['confirm_password']
+        if password != confirm_password:
+            raise ValidationError('As senhas devem coincidir.')
+        if len(password) < 8:
+            raise ValidationError('A senha deve possui no mínimo 8 caracteres')
+        return password
+           
+
