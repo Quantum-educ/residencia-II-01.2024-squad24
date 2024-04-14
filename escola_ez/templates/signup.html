@@ -15,7 +15,7 @@
     
     {% load widget_tweaks %}
     
-    <form method="post" class="flex flex-col gap-6">
+    <form action="/signup/" method="post" class="flex flex-col gap-6">
       {% csrf_token %}
       <div class="flex gap-4 items-center w-full">
         <div class="text-lg">Nome:</div>
