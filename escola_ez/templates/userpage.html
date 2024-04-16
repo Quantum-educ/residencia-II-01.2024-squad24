@@ -8,8 +8,8 @@
       Bem-Vindo {{ user.username }}!
     </h1>
     <div class="flex gap-4 mt-8">
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href="assessment">Realizar avaliação de perfil</a>
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href="logout">Encerrar sessão</a>
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'assessment' %}>Realizar avaliação de perfil</a>
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'logout' %}>Encerrar sessão</a>
     </div>
   </main>
 {% endblock %}
