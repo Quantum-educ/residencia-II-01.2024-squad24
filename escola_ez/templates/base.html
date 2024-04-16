@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html>
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title%}EZ - Empreendedorismo Geração Z{% endblock %}</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="shortcut icon" href="https://plataforma-ez.s3.us-east-1.amazonaws.com/static/media/logos/favicon.ico" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
 </head>
 <body>
   {% block content %}
