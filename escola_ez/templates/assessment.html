@@ -1,17 +1,11 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escola EZ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="shortcut icon" href="https://plataforma-ez.s3.us-east-1.amazonaws.com/static/media/logos/favicon.ico" />
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}EZ - Avaliação de Perfil{% endblock %}
+
+{% block content %}
   <main class="flex flex-col justify-center items-center min-h-screen">
     <h1 class="text-3xl font-bold">
       Avaliação de Perfil
     </h1>
   </main>
-</body>
-</html>
+{% endblock %}
