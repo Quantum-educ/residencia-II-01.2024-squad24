@@ -8,8 +8,8 @@
       Bem-Vindo à Escola EZ!
     </h1>
     <div class="flex gap-4 mt-8">
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href="signup">Cadastrar usuário</a>
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href="signin">Autenticar usuário</a>
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'signup' %}>Cadastrar usuário</a>
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'signin' %}>Autenticar usuário</a>
     </div>
   </main>
 {% endblock %}
