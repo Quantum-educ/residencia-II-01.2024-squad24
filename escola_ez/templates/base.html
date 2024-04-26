@@ -1,0 +1,15 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%}EZ - Empreendedorismo Geração Z{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+</head>
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

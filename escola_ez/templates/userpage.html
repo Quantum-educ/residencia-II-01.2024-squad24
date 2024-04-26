@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}EZ - Ambiente Colaborativo{% endblock %}
+
+{% block content %}
+  <main class="flex flex-col justify-center items-center min-h-screen">
+    <h1 class="text-3xl font-bold">
+      Bem-Vindo {{ user.username }}!
+    </h1>
+    <div class="flex gap-4 mt-8">
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'assessment' %}>Realizar avaliação de perfil</a>
+      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'logout' %}>Encerrar sessão</a>
+    </div>
+  </main>
+{% endblock %}
