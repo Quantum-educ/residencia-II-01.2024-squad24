@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load filters %}
+
+{% block title %}EZ - Resultado da Avaliação{% endblock %}
+
+{% block content %}  <div class="flex flex-col items-center h-screen">
+  <header class="pt-24">
+    <h1 class="text-3xl font-bold">Resultado da Avaliação</h1>
+  </header>
+
+  <div class="flex justify-around w-screen px-20 py-16">
+    {% if assessment_type == 'ned' %}
+      <table class="text-center">
+        <tr class="h-10 border-b-2 bg-slate-50">
+          <td class="w-4"></td>
+          <td class="w-32">Perfil</td>
+          <td class="w-32">Pontuação</td>
+          <td class="w-32">Predominância</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">🦅</td>
+          <td>Águia:</td>
+          <td>{{ result.eagle }}</td>
+          <td>{{ result.eagle|percentage:100 }}</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">🐱</td>
+          <td>Gato:</td>
+          <td>{{ result.cat }}</td>
+          <td>{{ result.cat|percentage:100 }}</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">🐺</td>
+          <td>Lobo:</td>
+          <td>{{ result.wolf }}</td>
+          <td>{{ result.wolf|percentage:100 }}</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">🦈</td>
+          <td>Tubarão:</td>
+          <td>{{ result.shark }}</td>
+          <td>{{ result.shark|percentage:100 }}</td>
+        </tr>
+      </table>
+    
+    {% elif assessment_type == 'vak' %}
+      <table class="text-center">
+        <tr class="h-10 border-b-2 bg-slate-50">
+          <td class="w-32">Perfil</td>
+          <td class="w-32">Pontuação</td>
+          <td class="w-32">Predominância</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td>Auditivo:</td>
+          <td>{{ result.auditory }}</td>
+          <td>{{ result.auditory|percentage:result.totalScore }}</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td>Visual:</td>
+          <td>{{ result.visual }}</td>
+          <td>{{ result.visual|percentage:result.totalScore }}</td>
+        </tr>
+        <tr class="h-12 border-b-2">
+          <td>Cinestésico:</td>
+          <td>{{ result.kinesthetic }}</td>
+          <td>{{ result.kinesthetic|percentage:result.totalScore }}</td>
+        </tr>
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}

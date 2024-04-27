@@ -3,13 +3,24 @@
 {% block title %}EZ - Ambiente Colaborativo{% endblock %}
 
 {% block content %}
-  <main class="flex flex-col justify-center items-center min-h-screen">
-    <h1 class="text-3xl font-bold">
-      Bem-Vindo {{ user.username }}!
-    </h1>
-    <div class="flex gap-4 mt-8">
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'assessment' %}>Realizar avaliação de perfil</a>
-      <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'logout' %}>Encerrar sessão</a>
-    </div>
-  </main>
+  <h1 class="text-3xl font-bold">
+    Bem-Vindo {{ user.username }}!
+  </h1>
+
+  <div class="flex flex-wrap justify-center gap-4 my-8">
+    <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'vak_assessment' %}>Realizar avaliação ACV</a>
+    <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'ned_assessment' %}>Realizar avaliação Ned</a>
+    <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'assessments_history' %}>Histórico de avaliações</a>
+    <a class="px-3 py-1 text-lg text-white bg-blue-600 rounded-lg" href={% url 'logout' %}>Encerrar sessão</a>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="my-2 px-8 py-4 bg-green-100 rounded-md text-center">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endblock %}
