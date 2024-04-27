@@ -1,11 +1,37 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}EZ - Avaliação de Perfil{% endblock %}
 
 {% block content %}
-  <main class="flex flex-col justify-center items-center min-h-screen">
-    <h1 class="text-3xl font-bold">
-      Avaliação de Perfil
-    </h1>
-  </main>
+  <header class="py-14">
+    <h1 class="text-3xl font-bold">Avaliação de Perfil</h1>
+  </header>
+  
+  {% load widget_tweaks %}
+  
+  <form action="{% url post_url %}" method="post" class="flex flex-col gap-6 mb-6">
+    {% csrf_token %}
+
+    {% for field in form %}
+      <div class="flex flex-col gap-4 w-full">
+        <div class="text-lg">{{ field.label }}</div>
+        {% for choice in field %}
+          <div class="choice px-8 py-4 bg-slate-100 rounded-md cursor-pointer">
+            {{ choice }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md cursor-pointer" type="submit" value="Enviar">
+  </form>
+
+  {% if form.errors %}
+    <div class="my-2 px-8 py-4 bg-red-100 rounded-md text-center">
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+  <script src="{% static 'scripts/assessmentsForm.js' %}"></script>
 {% endblock %}

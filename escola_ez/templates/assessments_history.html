@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}EZ - Histórico de Avaliações{% endblock %}
+
+{% block content %}
+  <div class="flex flex-col items-center h-screen">
+    <header class="pt-24">
+      <h1 class="text-3xl font-bold">Histórico de Avaliações</h1>
+    </header>
+
+    <form action={% url 'assessment_result' %} method="post" id="form" class="flex justify-around w-screen h-full px-20 py-16">
+      {% csrf_token %}
+    
+      <div class="flex flex-col gap-4 w-2/5 px-8 py-6 bg-slate-100 rounded-lg text-center">
+        <h1 class="text-xl">Avaliações ACV</h1>
+
+        {% if vak_assessments %}
+          {% for assessment in vak_assessments %}
+            <div class="assessment flex justify-center gap-2 py-1 border-2 border-slate-200 rounded-xl cursor-pointer">
+              <input type="hidden" name="assessmentId" value="{{ assessment.id }}">
+              <input type="hidden" name="assessmentType" value="vak">
+              {{ assessment }}
+              <img class="w-4 mb-1" src="{% static 'icons/arrow-on-square.svg' %}" alt="click">
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>Nenhuma avaliação ACV foi realizada.</p>
+        {% endif %}
+      </div>
+      
+      <div class="flex flex-col gap-4 w-2/5 px-8 py-6 bg-slate-100 rounded-lg text-center">
+        <h1 class="text-xl">Avaliações Ned</h1>
+        
+        {% if ned_assessments %}
+          {% for assessment in ned_assessments %}
+            <div class="assessment flex justify-center gap-2 py-1 border-2 border-slate-200 rounded-xl cursor-pointer">
+              <input type="hidden" name="assessmentId" value="{{ assessment.id }}">
+              <input type="hidden" name="assessmentType" value="ned">
+              {{ assessment }}
+              <img class="w-4 mb-1" src="{% static 'icons/arrow-on-square.svg' %}" alt="click">
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>Nenhuma avaliação Ned foi realizada.</p>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+  <script src="{% static 'scripts/assessmentsHistory.js' %}"></script>
+{% endblock %}

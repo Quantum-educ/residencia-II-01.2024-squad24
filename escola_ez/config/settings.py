@@ -92,7 +92,9 @@ AUTHENTICATION_BACKENDS = [
     'users.backends.EmailBackend',
 ]
 
-LOGIN_URL = '/signin'
+LOGIN_URL = 'signin'
+
+LOGIN_REDIRECT_URL = 'userpage'
 
 
 # Password validation
@@ -119,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
