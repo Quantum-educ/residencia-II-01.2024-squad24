@@ -3,47 +3,45 @@
 {% block title %}EZ - Cadastro de Aluno{% endblock %}
 
 {% block content %}
-  <main class="flex flex-col items-center gap-2 min-h-screen">
-    <header class="py-12">
-      <h1 class="text-3xl font-bold">Cadastro de Aluno</h1>
-    </header>
+  <header class="py-14">
+    <h1 class="text-3xl font-bold">Cadastro de Aluno</h1>
+  </header>
+  
+  {% load widget_tweaks %}
+  
+  <form action="/signup/" method="post" class="flex flex-col gap-6">
+    {% csrf_token %}
+    <div class="flex gap-4 items-center w-full">
+      <div class="text-lg">Nome:</div>
+      {% render_field form.username class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+    </div>
     
-    {% load widget_tweaks %}
+    <div class="flex gap-4 items-center w-full">
+      <div class="text-lg">Email:</div>
+      {% render_field form.email class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+    </div>
     
-    <form action="/signup/" method="post" class="flex flex-col gap-6">
-      {% csrf_token %}
-      <div class="flex gap-4 items-center w-full">
-        <div class="text-lg">Nome:</div>
-        {% render_field form.username class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
-      </div>
-      
-      <div class="flex gap-4 items-center w-full">
-        <div class="text-lg">Email:</div>
-        {% render_field form.email class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
-      </div>
-      
-      <div class="flex gap-4 items-center w-full">
-        <div class="text-lg">Senha:</div>
-        {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
-      </div>
-      
-      <div class="flex gap-4 items-center w-full">
-        <div class="text-lg">Confirmar senha:</div>
-        {% render_field form.confirm_password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
-      </div>
-      
-      <div class="flex gap-4 items-center w-full">
-        {% render_field form.accept_terms class+='' %}
-        <div class="text-lg">Aceito a Política de Privacidade</div>
-      </div>
-      
-      <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
-    </form>
+    <div class="flex gap-4 items-center w-full">
+      <div class="text-lg">Senha:</div>
+      {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+    </div>
+    
+    <div class="flex gap-4 items-center w-full">
+      <div class="text-lg">Confirmar senha:</div>
+      {% render_field form.confirm_password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
+    </div>
+    
+    <div class="flex gap-4 items-center w-full">
+      {% render_field form.accept_terms class+='' %}
+      <div class="text-lg">Aceito a Política de Privacidade</div>
+    </div>
+    
+    <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
+  </form>
 
-    {% if form.errors %}
-      <div class="my-2 px-8 py-4 bg-red-100 rounded-md text-center">
-        {{ form.non_field_errors }}
-      </div>
-    {% endif %}
-  </main>
+  {% if form.errors %}
+    <div class="my-2 px-8 py-4 bg-red-100 rounded-md text-center">
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
 {% endblock %}
