@@ -13,6 +13,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Focado, determinado e persistente'),
         ),
         max_length=1,
+        default='',
     )
     question_02 = models.CharField(
         'Eu gosto de...',
@@ -23,6 +24,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Explorar novas rotas'),
         ),
         max_length=1,
+        default='',
     )
     question_03 = models.CharField(
         'Se você quiser se dar bem comigo...',
@@ -33,6 +35,7 @@ class NedAssessment(models.Model):
             ('C', 'C - Seja amigável, carinhoso e compreensivo'),
         ),
         max_length=1,
+        default='',
     )
     question_04 = models.CharField(
         'Para conseguir obter bons resultados é preciso...',
@@ -43,6 +46,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Planejar e obter recursos'),
         ),
         max_length=1,
+        default='',
     )
     question_05 = models.CharField(
         'Eu me divirto quando...',
@@ -53,6 +57,7 @@ class NedAssessment(models.Model):
             ('O', 'O - Determino as regras'),
         ),
         max_length=1,
+        default='',
     )
     question_06 = models.CharField(
         'Eu penso que...',
@@ -63,6 +68,7 @@ class NedAssessment(models.Model):
             ('O', 'O - Um homem prevenido vale por dois'),
         ),
         max_length=1,
+        default='',
     )
     question_07 = models.CharField(
         'Minha preocupação é...',
@@ -73,6 +79,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Fazer com que aconteça'),
         ),
         max_length=1,
+        default='',
     )
     question_08 = models.CharField(
         'Eu prefiro...',
@@ -83,6 +90,7 @@ class NedAssessment(models.Model):
             ('C', 'C - Que todos tenham a chance de serem ouvidos')
         ),
         max_length=1,
+        default='',
     )
     question_09 = models.CharField(
         'Eu gosto de...',
@@ -93,6 +101,7 @@ class NedAssessment(models.Model):
             ('C', 'C - Tornar as pessoas confortáveis'),
         ),
         max_length=1,
+        default='',
     )
     question_10 = models.CharField(
         'Eu gosto de chegar...',
@@ -103,6 +112,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Em outro lugar'),
         ),
         max_length=1,
+        default='',
     )
     question_11 = models.CharField(
         'Um ótimo dia para mim é quando...',
@@ -113,6 +123,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Desfruto de coisas novas e estimulantes'),
         ),
         max_length=1,
+        default='',
     )
     question_12 = models.CharField(
         'Eu vejo a morte como...',
@@ -123,6 +134,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Algo que sempre chega muito cedo'),
         ),
         max_length=1,
+        default='',
     )
     question_13 = models.CharField(
         'Minha filosofia a de vida é...',
@@ -133,6 +145,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Para ganhar, é necessário inventar novas regras'),
         ),
         max_length=1,
+        default='',
     )
     question_14 = models.CharField(
         'Eu sempre gostei de...',
@@ -143,6 +156,7 @@ class NedAssessment(models.Model):
             ('C', 'C - Realizar uma abordagem natural'),
         ),
         max_length=1,
+        default='',
         )
     question_15 = models.CharField(
         'Eu gosto de mudanças se...',
@@ -153,6 +167,7 @@ class NedAssessment(models.Model):
             ('O', 'O - Melhorar ou me der mais controle'),
         ),
         max_length=1,
+        default='',
     )
     question_16 = models.CharField(
         'Não existe nada de errado em...',
@@ -163,6 +178,7 @@ class NedAssessment(models.Model):
             ('O', 'O - Ser consistente'),
         ),
         max_length=1,
+        default='',
     )
     question_17 = models.CharField(
         'Eu gosto de buscar conselhos de...',
@@ -173,6 +189,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Lugares, os mais estranhos'),
         ),
         max_length=1,
+        default='',
     )
     question_18 = models.CharField(
         'Meu lema é...',
@@ -183,6 +200,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Simplesmente fazer'),
         ),
         max_length=1,
+        default='',
     )
     question_19 = models.CharField(
         'Eu gosto de...',
@@ -193,6 +211,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Coisas claras e simples'),
         ),
         max_length=1,
+        default='',
     )
     question_20 = models.CharField(
         'Tempo para mim é...',
@@ -203,6 +222,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Irrelevante'),
         ),
         max_length=1,
+        default='',
     )
     question_21 = models.CharField(
         'Se eu fosse bilionário...',
@@ -213,6 +233,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Me exibiria bastante para algumas pessoas'),
         ),
         max_length=1,
+        default='',
     )
     question_22 = models.CharField(
         'Eu acredito que...',
@@ -223,6 +244,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Bastam um navio e uma estrela para navegar'),
         ),
         max_length=1,
+        default='',
     )
     question_23 = models.CharField(
         'Eu acredito também que...',
@@ -233,6 +255,7 @@ class NedAssessment(models.Model):
             ('I', 'I - Um sorriso ou uma careta é o mesmo para quem é cego'),
         ),
         max_length=1,
+        default='',
     )
     question_24 = models.CharField(
         'Eu acredito ainda que...',
@@ -243,6 +266,7 @@ class NedAssessment(models.Model):
             ('C', 'C - O coletivo é mais importante do que o individual'),
         ),
         max_length=1,
+        default='',
     )
     question_25 = models.CharField(
         'Eu penso que...',
@@ -253,6 +277,7 @@ class NedAssessment(models.Model):
             ('A', 'A - Se você não tem condições de competir, não compita'),
         ),
         max_length=1,
+        default='',
     )
     
     def __str__(self):
