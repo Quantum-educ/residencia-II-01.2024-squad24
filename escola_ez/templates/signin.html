@@ -13,16 +13,16 @@
     {% csrf_token %}
 
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Email:</div>
+      <label for="id_email" class="text-lg">Email:</label>
       {% render_field form.email class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
     
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Senha:</div>
+      <label for="id_password" class="text-lg">Senha:</label>
       {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
 
-    <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
+    <input id="submit" class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
   </form>
 
   {% if form.errors %}

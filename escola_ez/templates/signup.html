@@ -12,31 +12,31 @@
   <form action="/signup/" method="post" class="flex flex-col gap-6">
     {% csrf_token %}
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Nome:</div>
+      <label for="id_username" class="text-lg">Nome:</label>
       {% render_field form.username class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
     
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Email:</div>
+      <label for="id_email" class="text-lg">Email:</label>
       {% render_field form.email class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
     
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Senha:</div>
+      <label for="id_password" class="text-lg">Senha:</label>
       {% render_field form.password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
     
     <div class="flex gap-4 items-center w-full">
-      <div class="text-lg">Confirmar senha:</div>
+      <label for="id_confirm_password" class="text-lg">Confirmar senha:</label>
       {% render_field form.confirm_password class+='ml-auto px-2 py-1 border-2 border-slate-300 rounded' %}
     </div>
     
     <div class="flex gap-4 items-center w-full">
       {% render_field form.accept_terms class+='' %}
-      <div class="text-lg">Aceito a Política de Privacidade</div>
+      <label for="id_accept_terms" class="text-lg">Aceito a Política de Privacidade</label>
     </div>
     
-    <input class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
+    <input id="submit" class="mx-auto px-6 py-1 text-white bg-blue-500 rounded-md" type="submit" value="Enviar">
   </form>
 
   {% if form.errors %}
