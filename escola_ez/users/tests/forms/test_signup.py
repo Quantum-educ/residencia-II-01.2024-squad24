@@ -1,13 +1,11 @@
-from django.test import LiveServerTestCase
-from django.urls import reverse
+from django.test import TestCase
 from users.forms import StudentSignUpForm
 
 
-class TestSignUpForm(LiveServerTestCase):
+class TestSignUpForm(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.url = reverse('signup')
         cls.valid_data = {
             'username': 'user',
             'email': 'user@email.com',
@@ -23,23 +21,28 @@ class TestSignUpForm(LiveServerTestCase):
         form = StudentSignUpForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
     
-    def test_invalid_form_username(self):
+    def test_invalid_form_blank_username(self):
         invalid_data = self._change_valid_data('username', '')
         form = StudentSignUpForm(data=invalid_data)
         self.assertFalse(form.is_valid())
     
-    def test_invalid_form_email(self):
+    def test_invalid_form_blank_email(self):
         invalid_data = self._change_valid_data('email', '')
         form = StudentSignUpForm(data=invalid_data)
         self.assertFalse(form.is_valid())
     
-    def test_invalid_form_password(self):
-        invalid_data = self._change_valid_data('password', 'shortPW')
+    def test_invalid_form_email_format(self):
+        invalid_data = self._change_valid_data('email', 'user.email')
+        form = StudentSignUpForm(data=invalid_data)
+        self.assertFalse(form.is_valid())
+    
+    def test_invalid_form_short_password(self):
+        invalid_data = self._change_valid_data('password', 'shortPw')
         form = StudentSignUpForm(data=invalid_data)
         self.assertFalse(form.is_valid())
     
     def test_invalid_form_mismatched_passwords(self):
-        invalid_data = self._change_valid_data('confirm_password', 'otherPassword')
+        invalid_data = self._change_valid_data('confirm_password', 'mismatchedPassword')
         form = StudentSignUpForm(data=invalid_data)
         self.assertFalse(form.is_valid())
     
