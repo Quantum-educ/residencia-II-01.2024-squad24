@@ -28,12 +28,12 @@ class TestHomeView(LiveServerTestCase):
     def test_home_view_anchor_signup(self):
         self.driver.get(f'{self.live_server_url}')
         self.driver.find_element('id', 'signup-anchor').click()
-        self.assertIn(f"{self.live_server_url}/signup/", self.driver.current_url)
+        self.assertIn(f'{self.live_server_url}/signup/', self.driver.current_url)
 
     def test_home_view_anchor_signin(self):
         self.driver.get(f'{self.live_server_url}')
         self.driver.find_element('id', 'signin-anchor').click()
-        self.assertIn(f"{self.live_server_url}/signin/", self.driver.current_url)
+        self.assertIn(f'{self.live_server_url}/signin/', self.driver.current_url)
 
     @classmethod
     def tearDownClass(cls):
