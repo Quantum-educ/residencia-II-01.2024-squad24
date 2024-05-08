@@ -1,5 +1,8 @@
 # Squad 24
 
+## Deploy da aplicação
+<a href="https://squad24.onrender.com"> https://squad24.onrender.com </a>
+
 ## Instalação e Execução
 
 1. Instale o <a href="https://git-scm.com/downloads" target="_blank">Git</a>
