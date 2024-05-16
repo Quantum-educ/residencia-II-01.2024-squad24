@@ -34,8 +34,9 @@ class StudentSignUpForm(forms.ModelForm):
         student.set_password(self.cleaned_data['password'])
         if commit:
             profile = Profile.objects.create()
-            student.profile = profile
+            student.student_profile = profile
             student.save()
+            profile.profile_student = student
         return student
 
 

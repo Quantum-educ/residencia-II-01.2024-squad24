@@ -2,6 +2,7 @@ from django.db import models
 
 
 class NedAssessment(models.Model):
+    ned_profile = models.ForeignKey('Profile', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     
     question_01 = models.CharField(
