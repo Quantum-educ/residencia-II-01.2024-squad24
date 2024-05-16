@@ -9,4 +9,4 @@ def percentage(A, B):
     try:
         return f'{int(A) / int(B):.0%}'
     except (ValueError, ZeroDivisionError):
-        return None
+        return '0%'
