@@ -10,14 +10,14 @@ class Profile(models.Model):
         null=True,
     )
     
-    ned_assessment = models.ForeignKey(
+    ned_assessments = models.ForeignKey(
         'NedAssessment',
         on_delete=models.CASCADE,
         blank=True,
         null=True,
     )
     
-    vak_assessment = models.ForeignKey(
+    vak_assessments = models.ForeignKey(
         'VAKAssessment',
         on_delete=models.CASCADE,
         blank=True,
