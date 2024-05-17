@@ -54,11 +54,10 @@ def user_logout(request):
 @login_required
 def ned_assessment(request):
     if request.method == 'POST':
-        form = NedAssessmentForm(request.POST)
+        profile = request.user.student_profile
+        form = NedAssessmentForm(request.POST, profile=profile)
         if form.is_valid():
-            user = request.user
-            assessment = form.save()
-            user.profile.ned_assessment = assessment
+            form.save()
             messages.add_message(request, messages.SUCCESS, 'Avaliação Ned realizada com sucesso!')
             return redirect('userpage')
         return render(request, 'assessment.html', {'form': form})
@@ -71,11 +70,10 @@ def ned_assessment(request):
 @login_required
 def vak_assessment(request):
     if request.method == 'POST':
-        form = VAKAssessmentForm(request.POST)
+        profile = request.user.student_profile
+        form = VAKAssessmentForm(request.POST, profile=profile)
         if form.is_valid():
-            user = request.user
-            assessment = form.save()
-            user.profile.vak_assessment = assessment
+            form.save()
             messages.add_message(request, messages.SUCCESS, 'Avaliação ACV realizada com sucesso!')
             return redirect('userpage')
         return render(request, 'assessment.html', {'form': form})
@@ -87,8 +85,9 @@ def vak_assessment(request):
 
 @login_required
 def assessments_history(request):
-    ned_assessments = list(NedAssessment.objects.all())
-    vak_assessments = list(VAKAssessment.objects.all())
+    profile = request.user.student_profile
+    ned_assessments = list(NedAssessment.objects.filter(ned_profile=profile))
+    vak_assessments = list(VAKAssessment.objects.filter(vak_profile=profile))
     ned_assessments.reverse()
     vak_assessments.reverse()
     context = {'ned_assessments': ned_assessments, 'vak_assessments': vak_assessments}
