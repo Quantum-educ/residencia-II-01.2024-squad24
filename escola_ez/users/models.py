@@ -3,14 +3,21 @@ from django.db import models
 
 
 class Profile(models.Model):
-    ned_assessment = models.ForeignKey(
+    profile_student = models.OneToOneField(
+        'Student',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+    
+    ned_assessments = models.ForeignKey(
         'NedAssessment',
         on_delete=models.CASCADE,
         blank=True,
         null=True,
     )
     
-    vak_assessment = models.ForeignKey(
+    vak_assessments = models.ForeignKey(
         'VAKAssessment',
         on_delete=models.CASCADE,
         blank=True,
@@ -22,7 +29,7 @@ class Student(AbstractBaseUser):
     username = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    student_profile = models.OneToOneField('Profile', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     
     objects = UserManager()

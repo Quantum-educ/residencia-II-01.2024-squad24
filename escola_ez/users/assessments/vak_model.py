@@ -10,6 +10,7 @@ YES_NO = (
 
 
 class VAKAssessment(models.Model):
+    vak_profile = models.ForeignKey('Profile', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     
     question_01 = models.CharField(

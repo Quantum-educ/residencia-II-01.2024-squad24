@@ -5,7 +5,7 @@ from .vak_model import VAKAssessment
 class VAKAssessmentForm(forms.ModelForm):
     class Meta:
         model = VAKAssessment
-        fields = '__all__'
+        exclude = ['vak_profile']
         widgets = {
             'question_01': forms.RadioSelect(choices=VAKAssessment.question_01.field.choices),
             'question_02': forms.RadioSelect(choices=VAKAssessment.question_02.field.choices),
@@ -38,3 +38,15 @@ class VAKAssessmentForm(forms.ModelForm):
             'question_29': forms.RadioSelect(choices=VAKAssessment.question_29.field.choices),
             'question_30': forms.RadioSelect(choices=VAKAssessment.question_30.field.choices),
         }
+    
+    def __init__(self, *args, **kwargs):
+        self.profile = kwargs.pop('profile', None)
+        super().__init__(*args, **kwargs)
+    
+    def save(self, commit=True):
+        form = super().save(commit=False)
+        if commit:
+            form.vak_profile = self.profile
+            form.save()
+            self.profile = form
+        return form

@@ -47,21 +47,25 @@
     {% elif assessment_type == 'vak' %}
       <table class="text-center">
         <tr class="h-10 border-b-2 bg-slate-50">
+          <td class="w-4"></td>
           <td class="w-32">Perfil</td>
           <td class="w-32">Pontuação</td>
           <td class="w-32">Predominância</td>
         </tr>
         <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">👂🏼</td>
           <td>Auditivo:</td>
           <td>{{ result.auditory }}</td>
           <td>{{ result.auditory|percentage:result.totalScore }}</td>
         </tr>
         <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">👁️</td>
           <td>Visual:</td>
           <td>{{ result.visual }}</td>
           <td>{{ result.visual|percentage:result.totalScore }}</td>
         </tr>
         <tr class="h-12 border-b-2">
+          <td class="pl-6 text-2xl">🖐🏼</td>
           <td>Cinestésico:</td>
           <td>{{ result.kinesthetic }}</td>
           <td>{{ result.kinesthetic|percentage:result.totalScore }}</td>

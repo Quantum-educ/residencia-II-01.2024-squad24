@@ -6,7 +6,7 @@ class NedAssessmentForm(forms.ModelForm):
     
     class Meta:
         model = NedAssessment
-        fields = '__all__'
+        exclude = ['ned_profile']
         widgets = {
             'question_01': forms.RadioSelect(choices=NedAssessment.question_01.field.choices),
             'question_02': forms.RadioSelect(choices=NedAssessment.question_02.field.choices),
@@ -34,3 +34,15 @@ class NedAssessmentForm(forms.ModelForm):
             'question_24': forms.RadioSelect(choices=NedAssessment.question_24.field.choices),
             'question_25': forms.RadioSelect(choices=NedAssessment.question_25.field.choices),
         }
+    
+    def __init__(self, *args, **kwargs):
+        self.profile = kwargs.pop('profile', None)
+        super().__init__(*args, **kwargs)
+    
+    def save(self, commit=True):
+        form = super().save(commit=False)
+        if commit:
+            form.ned_profile = self.profile
+            form.save()
+            self.profile = form
+        return form
