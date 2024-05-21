@@ -9,5 +9,8 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-RUN chmod +x ./release.sh
-CMD ["./release.sh"]
+RUN python escola_ez/manage.py makemigrations --noinput
+RUN python escola_ez/manage.py migrate --noinput
+RUN python escola_ez/manage.py collectstatic --noinput
+
+CMD ["python", "escola_ez/manage.py", "runserver", "0.0.0.0:8000"]
